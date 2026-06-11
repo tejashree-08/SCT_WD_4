@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Bloom — Premium To-Do App</title>
+
+<link rel="stylesheet" href="style.css">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+<div class="app" id="app">
+
+<aside class="sidebar" id="sidebar">
+
+<div class="brand">
+<div class="brand-logo">🌸</div>
+<h1>Bloom</h1>
+</div>
+
+<div id="nav"></div>
+
+</aside>
+
+<main class="main">
+
+<div class="topbar">
+
+<button class="icon-btn menu-toggle" id="menuToggle">☰</button>
+
+<div class="search">
+<span>🔍</span>
+<input id="searchInput" placeholder="Search tasks...">
+</div>
+
+<button class="icon-btn" id="themeBtn">🌙</button>
+<button class="icon-btn" id="exportBtn">⤓</button>
+<button class="icon-btn" id="importBtn">⤒</button>
+
+<input id="importInput" type="file" accept="application/json" hidden>
+
+<button class="btn-primary" id="addTaskBtn">
+＋ New Task
+</button>
+
+</div>
+
+<div id="greeting" class="greeting"></div>
+
+<div id="stats" class="stats-grid"></div>
+
+<div class="panels">
+
+<section class="panel">
+
+<div class="panel-head">
+
+<h3>Your Tasks</h3>
+
+<div class="filters">
+
+<select id="filterCategory">
+<option value="all">All categories</option>
+</select>
+
+<select id="filterStatus">
+<option value="all">All status</option>
+<option value="not-started">Not Started</option>
+<option value="in-progress">In Progress</option>
+<option value="completed">Completed</option>
+</select>
+
+<select id="filterPriority">
+<option value="all">All priority</option>
+<option value="high">High</option>
+<option value="medium">Medium</option>
+<option value="low">Low</option>
+</select>
+
+<select id="filterSort">
+<option value="due">Sort: Due date</option>
+<option value="priority">Sort: Priority</option>
+<option value="created">Sort: Newest</option>
+<option value="alpha">Sort: A-Z</option>
+</select>
+
+</div>
+
+</div>
+
+<div id="taskList" class="task-list"></div>
+
+</section>
+
+<aside style="display:flex;flex-direction:column;gap:22px">
+
+<section class="panel" id="progressPanel"></section>
+
+<section class="panel" id="calendarPanel"></section>
+
+</aside>
+
+</div>
+
+</main>
+
+<!-- Modal -->
+
+<div class="modal-bg" id="taskModal">
+
+<div class="modal">
+
+<h3 id="modalTitle">New Task</h3>
+
+<div class="field">
+<label>Title</label>
+<input id="mTitle">
+</div>
+
+<div class="field">
+<label>Description</label>
+<textarea id="mDesc"></textarea>
+</div>
+
+<div class="field-row">
+
+<div class="field">
+<label>Category</label>
+<select id="mCategory"></select>
+</div>
+
+<div class="field">
+<label>Priority</label>
+<select id="mPriority">
+<option value="low">Low</option>
+<option value="medium">Medium</option>
+<option value="high">High</option>
+</select>
+</div>
+
+</div>
+
+<div class="field-row">
+
+<div class="field">
+<label>Due Date</label>
+<input type="date" id="mDate">
+</div>
+
+<div class="field">
+<label>Due Time</label>
+<input type="time" id="mTime">
+</div>
+
+</div>
+
+<div class="field">
+<label>Status</label>
+<select id="mStatus">
+<option value="not-started">Not Started</option>
+<option value="in-progress">In Progress</option>
+<option value="completed">Completed</option>
+</select>
+</div>
+
+<div class="modal-actions">
+<button class="btn-ghost" id="mCancel">Cancel</button>
+<button class="btn-primary" id="mSave">Save Task</button>
+</div>
+
+</div>
+
+</div>
+
+<div class="focus-mode" id="focusOverlay">
+<button class="focus-exit" id="focusExit">Exit Focus</button>
+<div class="pomo-mode">Focus Mode</div>
+<div class="pomo-time" id="focusTime">25:00</div>
+</div>
+
+<div id="toastWrap" class="toast-wrap"></div>
+
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>
